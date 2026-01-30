@@ -44,8 +44,8 @@ const createCustomIcon = (color: string) => {
 
 const markerColors: Record<string, string> = {
   bimbel: "#1E88E5",
-  asrama: "#F9A825",
-  roadshow: "#43A047",
+  roadshow: "#F9A825",
+  rencana: "#9E9E9E",
 };
 
 // Map bounds fitter component
@@ -101,9 +101,14 @@ export default function GISMap() {
               <div className="text-center p-2">
                 <h4 className="font-bold text-gray-900">{location.name}</h4>
                 <p className="text-sm text-gray-500">{location.region}</p>
-                <p className="text-lg font-bold text-primary-blue mt-1">
-                  {location.students} siswa
-                </p>
+                <span className={`inline-block mt-2 text-xs px-2 py-1 rounded-full ${
+                  location.type === "bimbel" ? "bg-blue-100 text-blue-700" :
+                  location.type === "roadshow" ? "bg-yellow-100 text-yellow-700" :
+                  "bg-gray-200 text-gray-600"
+                }`}>
+                  {location.type === "bimbel" ? "Bimbel Aktif" :
+                   location.type === "roadshow" ? "Roadshow" : "Rencana"}
+                </span>
               </div>
             </Popup>
           </Marker>
@@ -122,11 +127,11 @@ export default function GISMap() {
           </div>
           <div className="flex items-center gap-2.5 text-[13px] text-gray-700">
             <div className="w-3 h-3 rounded-full bg-secondary-yellow" />
-            <span>Asrama Intensif</span>
+            <span>Roadshow Sekolah</span>
           </div>
           <div className="flex items-center gap-2.5 text-[13px] text-gray-700">
-            <div className="w-3 h-3 rounded-full bg-secondary-green" />
-            <span>Roadshow Sekolah</span>
+            <div className="w-3 h-3 rounded-full bg-gray-400 border border-dashed border-gray-500" />
+            <span>Rencana Bimbel Baru</span>
           </div>
         </div>
       </div>

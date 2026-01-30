@@ -1,16 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { problemStats } from "@/lib/data";
 
 export default function ProblemSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [selectedStat, setSelectedStat] = useState<typeof problemStats[0] | null>(null);
 
   return (
-    <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
+    <section id="about" className="py-24 bg-gray-900 text-white relative overflow-hidden">
       {/* Pattern overlay */}
       <div
         className="absolute inset-0 opacity-30"
@@ -36,7 +37,10 @@ export default function ProblemSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
-              className="p-8 bg-white/5 rounded-2xl border border-white/10"
+              className={`p-8 bg-white/5 rounded-2xl border border-white/10 ${
+                stat.detail ? "cursor-pointer hover:bg-white/10 hover:border-secondary-yellow/50 transition-all duration-300" : ""
+              }`}
+              onClick={() => stat.detail && setSelectedStat(stat)}
             >
               <div className="text-5xl md:text-6xl font-extrabold text-secondary-yellow leading-none mb-3">
                 {stat.number}
@@ -44,6 +48,11 @@ export default function ProblemSection() {
               <p className="text-base text-gray-300 leading-relaxed">
                 {stat.text}
               </p>
+              {stat.detail && (
+                <p className="text-xs text-secondary-yellow/70 mt-3">
+                  Klik untuk info lebih lanjut
+                </p>
+              )}
             </motion.div>
           ))}
         </div>
@@ -58,6 +67,49 @@ export default function ProblemSection() {
           <span className="text-secondary-yellow">mengubah realitas ini.</span>
         </motion.p>
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedStat && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-6"
+            onClick={() => setSelectedStat(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-gray-800 rounded-2xl p-8 max-w-lg w-full border border-white/10 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="text-center mb-6">
+                <div className="text-5xl font-extrabold text-secondary-yellow mb-2">
+                  {selectedStat.number}
+                </div>
+                <p className="text-lg text-white font-medium">
+                  {selectedStat.text}
+                </p>
+              </div>
+              <div className="border-t border-white/10 pt-6">
+                <h4 className="text-secondary-yellow font-semibold mb-3">Mengapa ini terjadi?</h4>
+                <p className="text-gray-300 leading-relaxed text-sm">
+                  {selectedStat.detail}
+                </p>
+              </div>
+              <button
+                onClick={() => setSelectedStat(null)}
+                className="mt-6 w-full py-3 bg-secondary-yellow text-gray-900 font-semibold rounded-xl hover:bg-secondary-yellow/90 transition-colors"
+              >
+                Tutup
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

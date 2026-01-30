@@ -1,16 +1,16 @@
 // Static data for Sakola Kembara website
 
 export const navLinks = [
-  { href: "#about", label: "Tentang Kami" },
-  { href: "#activities", label: "Program" },
-  { href: "#impact", label: "Dampak" },
-  { href: "#news", label: "Berita" },
-  { href: "#contact", label: "Kontak" },
+  { href: "/", label: "Tentang Kami" },
+  { href: "/tim", label: "Tim Kami" },
+  { href: "/donasi", label: "Donasi" },
+  { href: "/blog", label: "Blog" },
+  { href: "/kontak", label: "Kontak" },
 ];
 
 export const heroStats = [
-  { number: "500+", label: "Siswa Terbantu" },
-  { number: "59%", label: "Tingkat Kelulusan PTN" },
+  { number: "400+", label: "Siswa Terbantu" },
+  { number: "75.88%", label: "Berkuliah" },
   { number: "5", label: "Wilayah Jangkauan" },
 ];
 
@@ -18,46 +18,99 @@ export const problemStats = [
   {
     number: "3/10",
     text: "Hanya 3 dari 10 anak Indonesia yang memiliki akses ke pendidikan tinggi",
+    detail: null,
   },
   {
     number: "50%+",
     text: "Lebih dari setengah mahasiswa berasal dari keluarga 20% terkaya",
+    detail: "Penelitian menunjukkan bahwa anak-anak dari keluarga dengan kondisi ekonomi lebih baik cenderung memiliki kemampuan kognitif yang lebih tinggi. Hal ini disebabkan oleh akses yang lebih baik terhadap nutrisi, stimulasi pendidikan sejak dini, bimbingan belajar, dan lingkungan yang mendukung perkembangan otak. Akibatnya, anak-anak dari keluarga mampu memiliki peluang lebih besar untuk lolos berbagai seleksi masuk Perguruan Tinggi Negeri seperti SNBP dan UTBK. Kondisi ini menciptakan ketimpangan di mana mayoritas mahasiswa PTN di Indonesia saat ini berasal dari 20% keluarga terkaya.",
   },
   {
     number: "2x",
     text: "Anak kota punya kesempatan 2x lebih besar untuk kuliah",
+    detail: null,
   },
 ];
 
-export const activities = [
+export const programs = [
   {
-    id: 1,
-    title: "Bimbingan Belajar Kembara",
+    id: "prapembinaan",
+    title: "Prapembinaan",
     description:
-      "Program bimbel gratis untuk siswa kelas 12 dan gap-year. Mempersiapkan siswa menghadapi UTBK dengan pendekatan terstruktur dan personal.",
-    tag: "Program Unggulan",
-    locations: ["Cililin", "Bandung", "Lembang"],
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Roadshow ke Sekolah",
-    description:
-      "Kunjungan langsung ke sekolah-sekolah di daerah terpencil untuk memberikan motivasi dan informasi tentang jalur masuk perguruan tinggi.",
-    tag: "Outreach",
-    locations: ["Arjawinangun", "Bojong"],
+      "Menjangkau dan menyeleksi siswa-siswa berpotensi dari berbagai daerah melalui roadshow ke sekolah dan proses seleksi berbasis motivasi.",
+    tag: "Tahap 1",
     image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&h=400&fit=crop",
+    subPrograms: [
+      {
+        title: "Roadshow ke Sekolah",
+        description: "Kunjungan langsung ke sekolah-sekolah di daerah-daerah sekitar cabang Sakola Kembara tentang pentingnya Perguruan Tinggi dan memberikan harapan bahwa kuliah dapat diakses karena ketersediaan berbagai beasiswa.",
+      },
+      {
+        title: "Seleksi Siswa",
+        description: "Seleksi berbasis surat motivasi dan wawancara untuk mencari siswa yang paling semangat dan berkomitmen tinggi, bukan yang paling pintar. Hal ini didasari karena kecerdasan dipengaruhi kemampuan ekonomi.",
+      },
+    ],
   },
   {
-    id: 3,
-    title: "Asrama Akhir Tahun",
+    id: "pembinaan",
+    title: "Pembinaan",
     description:
-      "Program asrama intensif menjelang UTBK. Siswa mendapat pelatihan akademis fokus dan bimbingan mental untuk menghadapi ujian.",
-    tag: "Intensif",
-    locations: ["Bandung", "Purwakarta"],
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop",
+      "Program pembelajaran intensif selama satu tahun dengan kurikulum khusus, mentoring, dan berbagai kegiatan pendukung untuk mempersiapkan siswa menghadapi UTBK.",
+    tag: "Tahap 2",
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop",
+    subPrograms: [
+      {
+        title: "KBM Pekanan",
+        description: "Belajar setiap hari Sabtu dan Minggu dari Agustus hingga April.",
+      },
+      {
+        title: "Asrama Akhir Tahun",
+        description: "Asrama selama 2 minggu saat libur semester sekolah di Desember-Januari. Proses belajar dilakukan setiap hari dari jam 8 pagi sampai 10 malam, di masing-masing cabang.",
+      },
+      {
+        title: "Asrama Intensif",
+        description: "Asrama 1-2 bulan setelah selesai berbagai Ujian di Sekolah. Proses belajar dilakukan setiap hari dari jam 8 pagi sampai 10 malam, dipusatkan di Kota Bandung.",
+      },
+      {
+        title: "Mentoring",
+        description: "Program pendampingan personal untuk mendukung perkembangan akademik dan non-akademik siswa.",
+      },
+      {
+        title: "Talents Mapping",
+        description: "Bekerjasama dengan talentsmapping.id, membantu seluruh siswa Sakola Kembara untuk memetakan bakat sehingga dapat memilih jurusan sesuai dengan bakatnya.",
+      },
+      {
+        title: "Kurikulum Khusus",
+        description: "Kurikulum yang dirancang khusus menggabungkan materi dari SD-SMA untuk dapat dipahami dalam 1 tahun pembelajaran, menyesuaikan dengan kemampuan awal siswa.",
+      },
+    ],
+  },
+  {
+    id: "pasca-pembinaan",
+    title: "Pasca-pembinaan",
+    description:
+      "Pendampingan berkelanjutan bagi alumni dalam pencarian beasiswa, peningkatan kapasitas, dan peluang untuk berkontribusi kembali.",
+    tag: "Tahap 3",
+    image: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600&h=400&fit=crop",
+    subPrograms: [
+      {
+        title: "Pendampingan Beasiswa",
+        description: "Untuk seluruh lulusan Sakola Kembara yang diterima di berbagai perguruan tinggi, kami dampingi proses pencarian beasiswanya hingga siswa tersebut bisa memulai proses perkuliahan.",
+      },
+      {
+        title: "Peningkatan Kapasitas",
+        description: "Berbagai program peningkatan kapasitas alumni Sakola Kembara guna mempersiapkan mereka untuk sukses di kampus dan di dunia pascakampus.",
+      },
+      {
+        title: "Peluang Menjadi Relawan",
+        description: "Setidaknya 50% dari siswa Sakola Kembara memutuskan untuk kembali mendukung Sakola Kembara dengan menjadi relawan atau dukungan lainnya.",
+      },
+    ],
   },
 ];
+
+// Keep for backward compatibility
+export const activities = programs;
 
 export const teamMembers = [
   {
@@ -111,64 +164,94 @@ export const teamMembers = [
 ];
 
 export const impactMetrics = [
-  { number: "500+", label: "Total Siswa Terbantu", color: "blue" },
-  { number: "59%", label: "Diterima di PTN", color: "yellow" },
-  { number: "4", label: "Siswa di Top 3 Universitas", color: "green" },
-  { number: "49", label: "Siswa Program 2023", color: "dark" },
+  { number: "400+", label: "Total Siswa Terbantu", color: "blue" },
+  { number: "75.88%", label: "Berkuliah (71.49% di PTN)", color: "yellow" },
+  { number: "10", label: "Siswa di Top 3 Universitas", color: "green" },
+  { number: "172", label: "Siswa Program 2025/2026", color: "dark" },
 ];
 
 export const mapLocations = [
+  // Bimbel Aktif
   {
     id: 1,
-    name: "Cililin",
+    name: "Sakola Kembara Cililin",
     region: "Bandung Barat",
     lat: -6.9167,
     lng: 107.4667,
-    students: 85,
     type: "bimbel",
   },
   {
     id: 2,
-    name: "Kota Bandung",
-    region: "Jawa Barat",
-    lat: -6.9175,
-    lng: 107.6191,
-    students: 120,
-    type: "asrama",
+    name: "Sakola Kembara Bojong",
+    region: "Purwakarta",
+    lat: -6.5844,
+    lng: 107.4367,
+    type: "bimbel",
   },
   {
     id: 3,
-    name: "Lembang",
-    region: "Bandung Barat",
-    lat: -6.8125,
-    lng: 107.6175,
-    students: 65,
-    type: "roadshow",
+    name: "Sakola Kembara Bandung",
+    region: "Kota Bandung",
+    lat: -6.9175,
+    lng: 107.6191,
+    type: "bimbel",
   },
   {
     id: 4,
-    name: "Arjawinangun",
-    region: "Cirebon",
-    lat: -6.6436,
-    lng: 108.4122,
-    students: 95,
+    name: "Sakola Kembara Cibodas",
+    region: "Bandung Barat",
+    lat: -6.7833,
+    lng: 107.5167,
     type: "bimbel",
   },
   {
     id: 5,
-    name: "Bojong",
-    region: "Purwakarta",
-    lat: -6.5844,
-    lng: 107.4367,
-    students: 75,
-    type: "asrama",
+    name: "Sakola Kembara Cirebon",
+    region: "Cirebon",
+    lat: -6.7063,
+    lng: 108.5570,
+    type: "bimbel",
+  },
+  {
+    id: 6,
+    name: "Sakola Kembara Purbalingga",
+    region: "Purbalingga",
+    lat: -7.3903,
+    lng: 109.3639,
+    type: "bimbel",
+  },
+  // Roadshow Sekolah
+  {
+    id: 7,
+    name: "Roadshow Sekolah",
+    region: "Berbagai Daerah",
+    lat: -6.8500,
+    lng: 107.5500,
+    type: "roadshow",
+  },
+  // Rencana Bimbel Baru
+  {
+    id: 8,
+    name: "Sakola Kembara Cisarua",
+    region: "Bandung Barat",
+    lat: -6.7833,
+    lng: 107.5500,
+    type: "rencana",
+  },
+  {
+    id: 9,
+    name: "Sakola Kembara Bojonegara",
+    region: "Serang",
+    lat: -6.0333,
+    lng: 106.1333,
+    type: "rencana",
   },
 ];
 
 export const mapStats = [
-  { number: "5", label: "Wilayah Aktif" },
-  { number: "3", label: "Kabupaten/Kota" },
-  { number: "2", label: "Provinsi" },
+  { number: "6", label: "Bimbel Aktif" },
+  { number: "2", label: "Rencana Bimbel Baru" },
+  { number: "3", label: "Provinsi" },
   { number: "15+", label: "Sekolah Terjangkau" },
 ];
 
@@ -246,7 +329,7 @@ export const newsArticles = [
     excerpt:
       "Cerita inspiratif perjalanan empat siswa dari daerah terpencil yang berhasil menembus seleksi masuk universitas top Indonesia melalui program bimbingan intensif Sakola Kembara.",
     featured: true,
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&h=600&fit=crop",
   },
   {
     id: 2,
@@ -267,6 +350,66 @@ export const newsArticles = [
       "Kemitraan strategis untuk membantu siswa menemukan bakat dan jurusan yang tepat.",
     featured: false,
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+  },
+  {
+    id: 4,
+    category: "Pencapaian",
+    date: "28 Desember 2023",
+    title: "Wisuda Angkatan 2023: 45 Siswa Siap Menuju Perguruan Tinggi",
+    excerpt:
+      "Momen penuh haru saat 45 siswa Sakola Kembara menyelesaikan program pembinaan dan siap menghadapi UTBK 2024.",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop",
+  },
+  {
+    id: 5,
+    category: "Kegiatan",
+    date: "20 Desember 2023",
+    title: "Asrama Akhir Tahun: 2 Minggu Belajar Intensif di Bandung",
+    excerpt:
+      "Siswa dari berbagai cabang berkumpul di Bandung untuk mengikuti program asrama intensif selama libur semester.",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&h=400&fit=crop",
+  },
+  {
+    id: 6,
+    category: "Cerita Alumni",
+    date: "15 Desember 2023",
+    title: "Dari Desa ke ITB: Perjalanan Inspiratif Daffa Najwan",
+    excerpt:
+      "Kisah Daffa, alumni Sakola Kembara yang kini berkuliah di Manajemen UGM dan aktif menjadi relawan pengajar.",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&h=400&fit=crop",
+  },
+  {
+    id: 7,
+    category: "Kegiatan",
+    date: "5 Desember 2023",
+    title: "Pembukaan Cabang Baru Sakola Kembara Purbalingga",
+    excerpt:
+      "Memperluas jangkauan ke Jawa Tengah, cabang keenam Sakola Kembara resmi dibuka di Purbalingga.",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&h=400&fit=crop",
+  },
+  {
+    id: 8,
+    category: "Partnership",
+    date: "25 November 2023",
+    title: "ITB Mendukung Program Beasiswa untuk Alumni Sakola Kembara",
+    excerpt:
+      "Kerjasama dengan Institut Teknologi Bandung untuk memberikan akses beasiswa bagi alumni yang diterima di ITB.",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop",
+  },
+  {
+    id: 9,
+    category: "Cerita Alumni",
+    date: "15 November 2023",
+    title: "Natia: Belajar Mencintai Diri Sendiri di Sakola Kembara",
+    excerpt:
+      "Selain akademik, Sakola Kembara juga mengajarkan nilai-nilai kehidupan yang mengubah cara pandang Natia.",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=400&fit=crop",
   },
 ];
 
@@ -292,10 +435,9 @@ export const contactInfo = [
 
 export const footerLinks = {
   program: [
-    { label: "Bimbel Kembara", href: "#" },
-    { label: "Roadshow Sekolah", href: "#" },
-    { label: "Asrama Intensif", href: "#" },
-    { label: "Keluarga Asuh", href: "#" },
+    { label: "Prapembinaan", href: "/program/prapembinaan" },
+    { label: "Pembinaan", href: "/program/pembinaan" },
+    { label: "Pasca-pembinaan", href: "/program/pasca-pembinaan" },
   ],
   tentang: [
     { label: "Misi Kami", href: "#" },
@@ -304,9 +446,9 @@ export const footerLinks = {
     { label: "Laporan", href: "#stakeholders" },
   ],
   terlibat: [
-    { label: "Donasi", href: "#donate" },
+    { label: "Donasi", href: "/donasi" },
     { label: "Jadi Relawan", href: "#" },
     { label: "Jadi Partner", href: "#" },
-    { label: "Kontak", href: "#contact" },
+    { label: "Kontak", href: "/kontak" },
   ],
 };

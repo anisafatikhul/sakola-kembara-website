@@ -44,7 +44,7 @@ export default function HeroSection() {
                 Lihat Program Kami
               </Link>
               <Link
-                href="#donate"
+                href="/donasi"
                 className="px-6 py-3 text-[15px] font-semibold text-gray-700 border-2 border-gray-200 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-all"
               >
                 Dukung Misi Kami

@@ -34,13 +34,13 @@ export default function Navbar() {
         {/* Desktop CTA Buttons */}
         <div className="hidden md:flex gap-3">
           <Link
-            href="#join"
+            href="/tim"
             className="px-6 py-3 text-[15px] font-semibold text-gray-700 border-2 border-gray-200 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-all"
           >
-            Gabung Program
+            Bergabung Menjadi Relawan
           </Link>
           <Link
-            href="#donate"
+            href="/donasi"
             className="px-6 py-3 text-[15px] font-semibold text-white bg-primary-blue rounded-lg hover:bg-primary-blue-dark hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary-blue/30 transition-all"
           >
             Donasi
@@ -75,14 +75,14 @@ export default function Navbar() {
           </ul>
           <div className="flex flex-col gap-3 mt-6">
             <Link
-              href="#join"
+              href="/tim"
               className="px-6 py-3 text-center text-[15px] font-semibold text-gray-700 border-2 border-gray-200 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-all"
               onClick={() => setIsMenuOpen(false)}
             >
-              Gabung Program
+              Bergabung Menjadi Relawan
             </Link>
             <Link
-              href="#donate"
+              href="/donasi"
               className="px-6 py-3 text-center text-[15px] font-semibold text-white bg-primary-blue rounded-lg hover:bg-primary-blue-dark transition-all"
               onClick={() => setIsMenuOpen(false)}
             >

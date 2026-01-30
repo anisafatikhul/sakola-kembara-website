@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { MapPin, GraduationCap } from "lucide-react";
+import { MapPin, GraduationCap, ChevronLeft, ChevronRight } from "lucide-react";
 import { impactMetrics, mapStats, mapLocations, testimonials } from "@/lib/data";
 
 // Dynamic import for map to avoid SSR issues with Leaflet
@@ -28,6 +28,23 @@ const metricColors: Record<string, string> = {
 export default function ImpactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Show 2 testimonials per slide on desktop, 1 on mobile
+  const testimonialsPerSlide = 2;
+  const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
   return (
     <section className="py-24 bg-white" id="impact">
@@ -107,66 +124,128 @@ export default function ImpactSection() {
             </div>
           </div>
 
-          {/* Location Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
-            {mapLocations.map((location) => (
-              <div
-                key={location.id}
-                className="bg-white border border-gray-100 rounded-xl p-4 text-center hover:border-primary-blue hover:shadow-lg hover:-translate-y-0.5 transition-all cursor-pointer"
-              >
-                <div className="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-2.5">
-                  <MapPin size={16} className="text-gray-500" />
-                </div>
-                <h5 className="text-sm font-bold text-gray-900 mb-0.5">
-                  {location.name}
-                </h5>
-                <p className="text-xs text-gray-500">{location.region}</p>
-                <div className="text-lg font-bold text-primary-blue mt-2">
-                  {location.students} siswa
-                </div>
-              </div>
-            ))}
+          {/* Legend */}
+          <div className="flex flex-wrap justify-center gap-6 mt-6">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-primary-blue rounded-full" />
+              <span className="text-sm text-gray-600">Bimbel Aktif</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-secondary-yellow rounded-full" />
+              <span className="text-sm text-gray-600">Roadshow Sekolah</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-gray-400 rounded-full border-2 border-dashed border-gray-500" />
+              <span className="text-sm text-gray-600">Rencana Bimbel Baru</span>
+            </div>
           </div>
         </motion.div>
 
-        {/* Testimonials */}
+        {/* Testimonials Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="grid md:grid-cols-2 gap-8"
         >
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="bg-gray-50 rounded-2xl p-8 flex gap-6"
-            >
-              <div className="w-32 h-40 rounded-xl overflow-hidden flex-shrink-0 relative">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-              <div className="flex-1">
-                <blockquote className="text-[15px] text-gray-700 italic leading-relaxed mb-4">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
-                <div>
-                  <strong className="text-base text-gray-900">
-                    {testimonial.name}
-                  </strong>
-                  <p className="text-sm text-primary-blue">{testimonial.major}</p>
-                </div>
-                <div className="inline-flex items-center gap-1.5 bg-white px-3 py-2 rounded-lg text-xs text-gray-600 mt-3 border border-gray-200">
-                  <GraduationCap size={14} />
-                  {testimonial.university}
-                </div>
-              </div>
+          {/* Header with Navigation */}
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                Cerita Sukses Alumni
+              </h3>
+              <p className="text-gray-600">
+                Perjalanan inspiratif dari siswa-siswa kami
+              </p>
             </div>
-          ))}
+            <div className="flex gap-2">
+              <button
+                onClick={prevSlide}
+                className="w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-600 hover:border-primary-blue hover:text-primary-blue transition-colors"
+                aria-label="Previous testimonials"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-600 hover:border-primary-blue hover:text-primary-blue transition-colors"
+                aria-label="Next testimonials"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+
+          {/* Carousel Container */}
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                <div
+                  key={slideIndex}
+                  className="w-full flex-shrink-0 grid md:grid-cols-2 gap-8"
+                >
+                  {testimonials
+                    .slice(
+                      slideIndex * testimonialsPerSlide,
+                      slideIndex * testimonialsPerSlide + testimonialsPerSlide
+                    )
+                    .map((testimonial) => (
+                      <div
+                        key={testimonial.id}
+                        className="bg-gray-50 rounded-2xl p-8 flex gap-6"
+                      >
+                        <div className="w-32 h-40 rounded-xl overflow-hidden flex-shrink-0 relative">
+                          <Image
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                            fill
+                            className="object-cover"
+                            unoptimized
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <blockquote className="text-[15px] text-gray-700 italic leading-relaxed mb-4">
+                            &ldquo;{testimonial.quote}&rdquo;
+                          </blockquote>
+                          <div>
+                            <strong className="text-base text-gray-900">
+                              {testimonial.name}
+                            </strong>
+                            <p className="text-sm text-primary-blue">
+                              {testimonial.major}
+                            </p>
+                          </div>
+                          <div className="inline-flex items-center gap-1.5 bg-white px-3 py-2 rounded-lg text-xs text-gray-600 mt-3 border border-gray-200">
+                            <GraduationCap size={14} />
+                            {testimonial.university}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dots Indicator */}
+          {totalSlides > 1 && (
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: totalSlides }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    currentSlide === index
+                      ? "bg-primary-blue w-8"
+                      : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
