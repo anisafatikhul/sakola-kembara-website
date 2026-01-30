@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const dmSerifDisplay = DM_Serif_Display({
-  weight: "400",
+const lora = Lora({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -55,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth">
       <body
-        className={`${dmSerifDisplay.variable} ${plusJakartaSans.variable} antialiased`}
+        className={`${lora.variable} ${plusJakartaSans.variable} antialiased`}
       >
         {children}
       </body>
