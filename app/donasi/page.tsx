@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Lock, Heart, Users, GraduationCap, ArrowLeft } from "lucide-react";
+import { Lock, Heart, Users, GraduationCap } from "lucide-react";
 import Link from "next/link";
 import { donationTiers } from "@/lib/data";
 import Navbar from "@/components/Navbar";
@@ -41,13 +41,6 @@ export default function DonasiPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
-              >
-                <ArrowLeft size={16} />
-                <span>Kembali ke Beranda</span>
-              </Link>
               <h1 className="font-[var(--font-display)] text-4xl md:text-5xl lg:text-6xl mb-4">
                 Dukung Perjalanan Mereka
               </h1>

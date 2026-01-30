@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Tag } from "lucide-react";
+import { Calendar } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -32,13 +32,6 @@ export default function BlogPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
-              >
-                <ArrowLeft size={16} />
-                <span>Kembali ke Beranda</span>
-              </Link>
               <h1 className="font-[var(--font-display)] text-4xl md:text-5xl lg:text-6xl mb-4">
                 Blog & Cerita
               </h1>

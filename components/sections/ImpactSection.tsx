@@ -123,22 +123,6 @@ export default function ImpactSection() {
               ))}
             </div>
           </div>
-
-          {/* Legend */}
-          <div className="flex flex-wrap justify-center gap-6 mt-6">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-primary-blue rounded-full" />
-              <span className="text-sm text-gray-600">Bimbel Aktif</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-secondary-yellow rounded-full" />
-              <span className="text-sm text-gray-600">Roadshow Sekolah</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gray-400 rounded-full border-2 border-dashed border-gray-500" />
-              <span className="text-sm text-gray-600">Rencana Bimbel Baru</span>
-            </div>
-          </div>
         </motion.div>
 
         {/* Testimonials Carousel */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Music, Twitter, ArrowLeft, Send } from "lucide-react";
+import { Instagram, Music, Twitter, Send } from "lucide-react";
 import Link from "next/link";
 import { contactInfo } from "@/lib/data";
 import Navbar from "@/components/Navbar";
@@ -20,13 +20,6 @@ export default function KontakPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 text-gray-600 hover:text-primary-blue mb-6 transition-colors"
-              >
-                <ArrowLeft size={16} />
-                <span>Kembali ke Beranda</span>
-              </Link>
               <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary-blue uppercase tracking-wider mb-4">
                 <span className="w-2 h-2 bg-secondary-yellow rounded-full" />
                 Hubungi Kami

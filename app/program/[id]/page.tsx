@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, Download } from "lucide-react";
+import { CheckCircle2, Download } from "lucide-react";
 import { programs } from "@/lib/data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -65,13 +65,6 @@ export default function ProgramDetailPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <Link
-                  href="/#activities"
-                  className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 transition-colors"
-                >
-                  <ArrowLeft size={16} />
-                  <span>Kembali ke Program</span>
-                </Link>
                 <span className="block mb-3">
                   <span className="bg-secondary-yellow text-gray-900 px-3 py-1.5 rounded-md text-sm font-semibold">
                     {program.tag}
