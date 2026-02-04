@@ -166,7 +166,7 @@ export const teamMembers = [
 export const impactMetrics = [
   { number: "400+", label: "Total Siswa Terbantu", color: "blue" },
   { number: "75.88%", label: "Berkuliah (71.49% di PTN)", color: "yellow" },
-  { number: "10", label: "Siswa di Top 3 Universitas", color: "green" },
+  { number: "10", label: "Siswa Diterima di Top 3 Universitas di Indonesia", color: "green" },
   { number: "172", label: "Siswa Program 2025/2026", color: "dark" },
 ];
 

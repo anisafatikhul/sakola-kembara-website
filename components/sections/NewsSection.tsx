@@ -53,7 +53,7 @@ export default function NewsSection() {
               transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
               className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all"
             >
-              <div className="h-[140px] relative overflow-hidden">
+              <div className="h-[160px] relative overflow-hidden">
                 <Image
                   src={article.image}
                   alt={article.title}
@@ -66,8 +66,8 @@ export default function NewsSection() {
                 </span>
               </div>
               <div className="p-4">
-                <p className="text-xs text-gray-400 mb-1">{article.date}</p>
-                <h3 className="text-sm font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-primary-blue transition-colors">
+                <p className="text-xs text-gray-400 mb-2">{article.date}</p>
+                <h3 className="text-sm font-semibold text-gray-900 leading-tight line-clamp-2 group-hover:text-primary-blue transition-colors">
                   {article.title}
                 </h3>
               </div>
