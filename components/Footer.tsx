@@ -22,7 +22,37 @@ export default function Footer() {
               kepada seluruh anak Indonesia, terutama di daerah terpencil dan
               kurang mampu.
             </p>
-            {/* Social Media */}
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">
+              Kontak
+            </h4>
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href="mailto:contact@sakolakembara.org"
+                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors"
+                >
+                  <Mail className="w-4 h-4 mt-0.5 shrink-0" />
+                  contact@sakolakembara.org
+                </a>
+              </li>
+              <li>
+                <div className="flex items-start gap-3 text-sm text-gray-400">
+                  <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+                  Bandung, Jawa Barat, Indonesia
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Media */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">
+              Social Media
+            </h4>
             <div className="flex gap-3">
               <a
                 href="https://instagram.com/sakolakembara"
@@ -68,62 +98,6 @@ export default function Footer() {
                   <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
               </a>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">
-              Kontak
-            </h4>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href="mailto:contact@sakolakembara.org"
-                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  <Mail className="w-4 h-4 mt-0.5 shrink-0" />
-                  contact@sakolakembara.org
-                </a>
-              </li>
-              <li>
-                <div className="flex items-start gap-3 text-sm text-gray-400">
-                  <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                  Bandung, Jawa Barat, Indonesia
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legalitas */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">
-              Legalitas
-            </h4>
-            <ul className="space-y-3">
-              <li className="text-sm text-gray-400">
-                SK Kemenkumham: AHU-XXXXXXXX
-              </li>
-              <li className="text-sm text-gray-400">
-                NPWP: XX.XXX.XXX.X-XXX.XXX
-              </li>
-              <li className="text-sm text-gray-400">
-                Akta Notaris: No. XX Tahun 2024
-              </li>
-            </ul>
-            <div className="mt-6 flex gap-4">
-              <Link
-                href="#"
-                className="text-sm text-gray-500 hover:text-white transition-colors"
-              >
-                Kebijakan Privasi
-              </Link>
-              <Link
-                href="#"
-                className="text-sm text-gray-500 hover:text-white transition-colors"
-              >
-                Syarat & Ketentuan
-              </Link>
             </div>
           </div>
         </div>
