@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -79,22 +79,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:hello@sakolakembara.org"
+                  href="mailto:contact@sakolakembara.org"
                   className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors"
                 >
                   <Mail className="w-4 h-4 mt-0.5 shrink-0" />
-                  hello@sakolakembara.org
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/6281234567890"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  <Phone className="w-4 h-4 mt-0.5 shrink-0" />
-                  +62 812 3456 7890
+                  contact@sakolakembara.org
                 </a>
               </li>
               <li>
